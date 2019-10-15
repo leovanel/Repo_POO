@@ -15,7 +15,7 @@ class Player
       end
   end
   def attacks(player)
-    puts "le joueur #{@name} attaque le joueur #{player.name}"
+    puts "#{@name} attaque le joueur #{player.name}"
     damage = compute_damage
     puts "#{@name} lui inflige #{damage} points de dommages !"
     player.get_dammage(damage)
@@ -26,7 +26,7 @@ class Player
 end
 
 class HumanPlayer<Player
-attr_accessor :weapon_level 
+attr_accessor :weapon_level
 
   def initialize(name)
     @name = name
@@ -41,9 +41,8 @@ attr_accessor :weapon_level
   def compute_damage
     return (rand(1..6))*@weapon_level
   end
-  
+
   def search_weapon
-    
     level=rand(1..6)
     puts "tu as trouvé une arme de niveau #{level}"
     if @weapon_level<level
@@ -53,24 +52,24 @@ attr_accessor :weapon_level
       puts "m****! elle n'est pas mieux que ton arme actuelle "
     end
   end
-  
+
   def search_health_pack
     health=rand(1..6)
-    case health 
-    when health=1
+    case health
+    when 1
       puts"tu n'as rien trouvé"
-    when health<=5 && health>=2
+    when 2..5
       puts"bravo, tu as trouvé 50 points de vie "
       if @life_points+50>100
         @life_points= 100
       else @life_points=life_points+50
       end
-    when health = 6
+    when 6
       puts"whaou, tu as trouvé 80 points de vie "
       if @life_points+80>100
         @life_points= 100
       else @life_points=life_points+80
-      end      
+      end
     end
   end
 

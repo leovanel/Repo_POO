@@ -1,7 +1,7 @@
 require 'bundler'
 Bundler.require
 
-require_relative 'lib/game'
+#require_relative 'lib/game'
 require_relative 'lib/player'
 
 def perform
@@ -17,8 +17,8 @@ def perform
     human=HumanPlayer.new(name)
     player1= Player.new("Josiane")
     player2= Player.new("José")
-    ennemies<<player1
-    ennemies<<player2
+    ennemies<< player1
+    ennemies << player2
 
     while human.life_points > 0 && (player1.life_points>0 || player2.life_points>0)
     puts "Voici l'état des joueurs :"
@@ -42,7 +42,7 @@ def perform
             human.search_weapon
         when "s"
             human.search_health_pack
-        when "0" 
+        when "0"
             human.attacks(player1)
         when "1"
             human.attacks(player2)
@@ -50,13 +50,13 @@ def perform
 
     gets.chomp
     puts "les bots attaquent !"
-    ennemies.each {|ennemie| 
+    ennemies.each {|ennemie|
         if ennemie.life_points <= 0
             break
         else ennemie.attacks(human)
         end}
-        
-    
+
+
     end
 
     puts"la partie est finie "
