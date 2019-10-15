@@ -44,8 +44,8 @@ class Game
         @human_player.search_health_pack
       when 0..4
         @human_player.attacks(@ennemies[choice])
-        if @ennemies[choice].life_points <= 0
-           kill_player(@ennemies[choice])
+        if @ennemies[choice].life_points <= 0       # quand un ennemis n'a plus de points de vie, on lance
+           kill_player(@ennemies[choice])           # kill_player pour le supprimer de l'array @ennemies
         end
     end
   end
@@ -54,6 +54,7 @@ class Game
     @ennemies.each {|ennemie| ennemie.attacks(@human_player)}
   end
   def end
+    puts ""
     puts"la partie est finie "
     if @human_player.life_points>0
       puts"bravo tu as gagné !"

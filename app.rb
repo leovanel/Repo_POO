@@ -3,11 +3,12 @@ Bundler.require
 
 require_relative 'lib/game'
 require_relative 'lib/player'
+
 def perform
-  player1= Player.new("Josiane")
+  player1= Player.new("Josiane")          # on créé 2 nouveaux joueurs
   player2= Player.new("José")
 
-  while player1.life_points > 0 && player2.life_points >0
+  while player1.life_points > 0 && player2.life_points >0    # tant que points de vie des 2 joueurs sont > 0
     puts "Voici l'état des joueurs :"
     puts player1.show_state
     puts player2.show_state
